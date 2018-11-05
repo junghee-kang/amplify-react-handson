@@ -172,8 +172,8 @@ export class AuthenticationInstruction extends Component {
 
         ];
         const str_code = [
-            `import Amplify from 'aws-amplify';
-import { withAuthenticator, Auth } from 'aws-amplify-react';
+            `import Amplify, {Auth} from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react';
 import aws_exports from './aws-exports';
 Amplify.configure(aws_exports);
 `,
@@ -322,6 +322,9 @@ uploadFile = (evt) => {
     }
 
 render() {
+// 아래 코드를 추가합니다.
+Storage.configure({ level: 'private' });
+
 // ... 
 // 실습 영역 내부를 아래 코드를 대체합니다.
 
@@ -344,7 +347,7 @@ render() {
                         <Message.Header>Storage 모듈의 기본 파일 액세스 수준은 public(모든 파일이 모든 사용자에게 공개)입니다.</Message.Header> <p>public 옵션 외에도 <b>protected</b> 와 <b>private</b> 액세스 레벨을 추가적으로 제공하여 인증된 사용자가 안전하게 파일을 활용 및 관리 할 수 ​​있습니다. </p></Message>
 
                     <Header color='grey' as='h3' style={{ marginTop: '3em' }}>Amplify CLI로 백엔드 구성</Header>
-                    <p> 다시 프로젝트 root 폴더의 명령창으로 돌아가서, 아래 명령을 통해 스토리지를 구성합니다. 서비스 형태는 파일을 저장하기 위해 'Contents'를 선택합니다.</p>
+                    <p> 다시 프로젝트 root 폴더의 명령창으로 돌아가서, 아래 명령을 통해 스토리지를 구성합니다. 이름과 버킷명은 디폴트를 사용하겠습니다. 서비스 형태는 파일을 저장하기 위해 'Contents'를 선택합니다. 접근 권한은 Auth users only에게 read/write를 선택합니다.</p>
                     <Message color="black">
                         <pre><code>{str_command[0]}
                         </code></pre>
@@ -393,13 +396,22 @@ export class APIInstruction extends Component {
     render() {
 
         const str_command = [
-            `$ amplify add api`,
-            `? Please select from one of the below mentioned services
-  GraphQL
-❯ REST`,
-            `$ yarn start`,
-            `$ amplify publish`,
-
+`$ amplify add api`,
+`? Please select from one of the below mentioned services REST
+? Provide a friendly name for your resource to be used as a label for this category in the project: sampleCloudApi
+? Provide a path (e.g., /items) /items
+? Choose a Lambda source Create a new Lambda function
+? Provide the AWS Lambda function name: sampleCloudApi
+? Choose the function template that you want to use: Serverless express function (Integration with Amazon API Gateway)
+? Do you want to edit the local lambda function now? true
+Please edit the file in your editor: PROJECT_FOLDER/amplify/backend/function/sampleCloudApi/src/app.js
+Succesfully added the Lambda function locally
+? Restrict API access Yes
+? Who should have access? Authenticated users only
+? What kind of access do you want for Authenticated users read/write
+? Do you want to add another path? No`,
+`$ yarn start`,
+`$ amplify publish`,
         ];
         const str_code = [
             `/* Uncomment a line below */

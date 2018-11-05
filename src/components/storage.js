@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 
 import { Container, Icon, Header, Segment, Placeholder } from 'semantic-ui-react'
 import { StorageInstruction } from './instruction';
+/* Uncomment a line below */
+/*
+import Amplify, { Storage } from 'aws-amplify';
+import { S3Album } from 'aws-amplify-react';
+*/
 
 class StorageCard extends Component {
+/* Uncomment a line below */
 /*
     uploadFile = (evt) => {
         const file = evt.target.files[0];
@@ -15,6 +21,8 @@ class StorageCard extends Component {
     }
 */
     render() {
+        /* Uncomment a line below */
+        //Storage.configure({ level: 'private' });
         return (
             <Container text style={{ marginTop: '4em', marginBottom: '4em' }}>
                 <Header color='orange' as='h2'>

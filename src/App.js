@@ -12,8 +12,8 @@ import AuthenticationCard from './components/authentication.js';
 import APICard from './components/api.js';
 //Amplify
 /*
-import Amplify from 'aws-amplify';
-import { withAuthenticator, Auth } from 'aws-amplify-react';
+import Amplify, {Auth} from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react';
 import aws_exports from './aws-exports';
 Amplify.configure(aws_exports);
 */
