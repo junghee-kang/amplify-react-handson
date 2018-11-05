@@ -121,6 +121,9 @@ $ amplify configure`,
                         <pre><code>
                             {`$ cd amplify-react-handson`}
                         </code></pre>
+                        <pre><code>
+                            {`$ yarn install`}
+                        </code></pre>
                     </Message>
                     <Header color='grey' as='h3' style={{ marginTop: '3em' }}>프로젝트 생성</Header>
                     <p>복제한 Application 경로에서 Amplify 프로젝트를 생성합니다.</p>
@@ -185,20 +188,20 @@ Amplify.configure(aws_exports);
         .catch(err => console.log(err));
     }
 `,
-            `    return (
+`    return (
         <Router>
         <div>
-            <Segment inverted color='grey'>
-            <Menu stackable style={{ border: '0px' }} inverted size='large' pointing secondary color='grey' >
-                <Menu.Item as='a' header><Image size='mini' src={logo} style={{ marginRight: '1.5em' }} /></Menu.Item>
-                ...
+        <Segment inverted color='grey'>
+        <Menu stackable style={{ border: '0px' }} inverted size='large' pointing secondary color='grey' >
+            <Menu.Item as='a' header><Image size='mini' src={logo} style={{ marginRight: '1.5em' }} /></Menu.Item>
+            ...
 
-                <Menu.Item position='right'>
-                    <Button as='a' onClick={this.logout} inverted>
-                    Log Out
-                    </Button>
-                </Menu.Item> `,
-            `// export default App; 를 대체 
+            <Menu.Item position='right'>
+                <Button as='a' onClick={this.logout} inverted>
+                Log Out
+                </Button>
+            </Menu.Item> `,
+`// export default App; 를 대체 
 export default withAuthenticator(App, true);`
         ];
 

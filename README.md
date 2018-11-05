@@ -41,6 +41,7 @@ $ amplify configure
 ```
 $ git clone https://github.com/junghee-kang/amplify-react-handson
 $ cd amplify-react-handson
+$ yarn install
 ```
 
 ### 프로젝트 생성
